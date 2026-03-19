@@ -1,6 +1,7 @@
 package todo
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -34,6 +35,10 @@ func (t *Task) Complete() {
 	t.Done = true
 }
 
-func (t *Task) String(string) {
-
+func (t *Task) String() string {
+	status := "[ ]"
+	if t.Done {
+		status = "[x]"
+	}
+	return fmt.Sprintf("%s #%d: %s", status, t.ID, t.Name)
 }
